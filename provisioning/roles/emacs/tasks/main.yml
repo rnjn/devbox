@@ -1,9 +1,8 @@
 - name: Install emacs
-  apt: emacs
+  apt: name=emacs state=present
 
 - name: Configure emacs
-  git: dest={{home}}/.emacs.d repo=git@github.com:rnjn/dotemacs.git update=no
+  sudo: no
+  git: dest={{home}}/.emacs.d repo=https://github.com/rnjn/dotemacs.git update=no
+  notify: Install emacs packages
 
-- handlers:
-    - name: Install emacs packages
-      shell: emacs --user {{user}} --batch --eval t
