@@ -1,0 +1,14 @@
+---
+- hosts: devboxes
+  user: vagrant
+  sudo: yes
+  gather_facts: false
+  vars:
+    user: "vagrant"
+    home: /home/vagrant
+    ruby_version: "1.9.3-p286"
+    ruby_path: $home/local/ruby/$ruby_version/bin/
+  roles:
+    - git
+    - ruby
+    - zsh

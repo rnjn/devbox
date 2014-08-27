@@ -1,0 +1,6 @@
+- name: Install ruby
+  apt: name=ruby state=present
+
+
+- name: Install bundler
+  command: gem install bundler
